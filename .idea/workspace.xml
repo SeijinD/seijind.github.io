@@ -3,6 +3,46 @@
   <component name="ChangeListManager">
     <list default="true" id="789f5878-5d21-411f-9f45-35f2b9e16897" name="Default" comment="Updated Open-Source project link.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/AYUSH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/CProComm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/DYPITMIS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/EMICalc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/GPJITNoticeboardApp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/GPJSite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/GoSafe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/JalgaonCoHelp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/PassengerSecurity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/SIH17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/SecurMi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Apps/TGApp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/AndroidFastlaneCICD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/AndroidLib.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/CellLocation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/DaggerLife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/DataStore-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/DataStore-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/DevOps-AndroidLib.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/EasyUpiPayment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/FirebaseFlow.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/FirebasePagination.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/FirebaseUpdateQuery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/FirestorePagination.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/Flutter2GS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/Flutter2GS2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/MaterialDialog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/MaterialNav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/ScheduleFCM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/StateFlow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/Covid19India.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/EasyUpiPayment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/FirebasePagination.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/LiveStream-Flutter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/LiveStream-Kt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/MaterialDialog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/MaterialNav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/OpenSource/ScheduleFCM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/SPDroid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Web/GPJalgaon.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +192,7 @@
       <workItem from="1563811683214" duration="935000" />
       <workItem from="1567841397335" duration="1057000" />
       <workItem from="1621799616235" duration="682000" />
-      <workItem from="1621805841011" duration="17283000" />
+      <workItem from="1621805841011" duration="20457000" />
     </task>
     <task id="LOCAL-00001" summary="Added Code">
       <created>1554883175062</created>
@@ -418,6 +458,17 @@
         <option value="3" />
         <option value="1" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
