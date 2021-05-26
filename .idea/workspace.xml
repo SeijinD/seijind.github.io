@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="789f5878-5d21-411f-9f45-35f2b9e16897" name="Default" comment="Updated Open-Source project link.">
-      <change afterPath="$PROJECT_DIR$/Images/Apps/cmfreerewards.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/Article/matplotlib-tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/OpenSource/salonikanews.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Article/numpy-tutorial.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Article/selenium-tutorial.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Article/web-scraping-using-python.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Article/youtube-downloader-python.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Apps/CProgramming.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Apps/PUAlerts.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Article/KotlinInternalApi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Article/LetYourDelegatesAutoNullifyRefs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/AutoFirebaseAppDistribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/TastyKotlin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Article/matplotlib-tutorial.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Article/matplotlib-tutorial.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,8 +133,8 @@
       <recent name="F:\Dev\GitHub\PatilShreyas.github.io\PatilShreyas.github.io\Images\OpenSource" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Github\seijind.github.io\Images\Apps" />
       <recent name="D:\Github\seijind.github.io\Images\Article" />
+      <recent name="D:\Github\seijind.github.io\Images\Apps" />
       <recent name="D:\Github\seijind.github.io\Images" />
     </key>
   </component>
@@ -165,6 +165,7 @@
       <workItem from="1567841397335" duration="1057000" />
       <workItem from="1621799616235" duration="682000" />
       <workItem from="1621805841011" duration="24041000" />
+      <workItem from="1622009761616" duration="1419000" />
     </task>
     <task id="LOCAL-00001" summary="Added Code">
       <created>1554883175062</created>
@@ -442,6 +443,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
