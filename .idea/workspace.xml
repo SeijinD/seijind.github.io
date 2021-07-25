@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="789f5878-5d21-411f-9f45-35f2b9e16897" name="Default" comment="Updated Open-Source project link.">
+      <change afterPath="$PROJECT_DIR$/Images/OpenSource/randomwaifu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/OpenSource/weather.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -126,6 +128,7 @@
       <recent name="F:\Dev\GitHub\PatilShreyas.github.io\PatilShreyas.github.io\Images\OpenSource" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\seijind.github.io\Images\OpenSource" />
       <recent name="D:\Github\seijind.github.io\Images\Article" />
       <recent name="D:\Github\seijind.github.io\Images\Apps" />
       <recent name="D:\Github\seijind.github.io\Images" />
@@ -164,7 +167,8 @@
       <workItem from="1623967041063" duration="5930000" />
       <workItem from="1624538109371" duration="2998000" />
       <workItem from="1624627960561" duration="158000" />
-      <workItem from="1625827351804" duration="633000" />
+      <workItem from="1625827351804" duration="1158000" />
+      <workItem from="1627196470492" duration="1329000" />
     </task>
     <task id="LOCAL-00001" summary="Added Code">
       <created>1554883175062</created>
