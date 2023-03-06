@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="789f5878-5d21-411f-9f45-35f2b9e16897" name="Default" comment="Fix typo">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Works/arx_company.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,16 +112,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "last_opened_file_path": "C:/Users/georg/WebstormProjects/seijind.github.io/Images/Works",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\georg\WebstormProjects\seijind.github.io\Images\Works" />
       <recent name="D:\Github\seijind.github.io\Images\Apps" />
       <recent name="D:\Github\seijind.github.io\Images\Article" />
       <recent name="D:\Github\seijind.github.io\Images\OpenSource" />
       <recent name="D:\Github\seijind.github.io\Images" />
-      <recent name="F:\Dev\GitHub\PatilShreyas.github.io\PatilShreyas.github.io\Images\OpenSource" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\seijind.github.io\Images\OpenSource" />
@@ -410,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678134523387</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Fix typo">
+      <created>1678134538765</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1678134538765</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
