@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="789f5878-5d21-411f-9f45-35f2b9e16897" name="Default" comment="Updated Open-Source project link.">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default/arx_company.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="789f5878-5d21-411f-9f45-35f2b9e16897" name="Default" comment="Fix typo">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -391,7 +389,28 @@
       <option name="project" value="LOCAL" />
       <updated>1567841851664</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Update jobs and description">
+      <created>1678134303814</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1678134303814</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Fix typo">
+      <created>1678134450041</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1678134450041</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Fix typo">
+      <created>1678134523387</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1678134523387</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -447,7 +466,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added Code" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Improved" />
     <MESSAGE value="Improved margin" />
@@ -471,7 +489,9 @@
     <MESSAGE value="Added new Article link." />
     <MESSAGE value="Updated Article link." />
     <MESSAGE value="Updated Open-Source project link." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Open-Source project link." />
+    <MESSAGE value="Update jobs and description" />
+    <MESSAGE value="Fix typo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix typo" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/bootstrap.js" />
