@@ -480,6 +480,14 @@ nav.scrolled {
     gap: 2rem;
 }
 
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .project-card {
     display: flex;
     flex-direction: column;
