@@ -75,3 +75,12 @@ desktop.ini
 *.swp
 *.swo
 *~
+# ======================
+# LLM / AI related
+# ======================
+.claude/skills/
+.claude/rules/
+.agents/skills/
+/.mcp.json
+/.codex/
+/AGENTS.md
