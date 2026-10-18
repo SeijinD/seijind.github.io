@@ -1,0 +1,202 @@
+---
+const scales = ["1.0", "1.3", "1.6"];
+---
+
+<div class="sandbox grid gap-4 rounded-xl border border-line bg-surface p-4 sm:p-5">
+  <div class="grid min-h-56 place-items-center overflow-hidden rounded-lg border border-line p-4" data-stage>
+    <article class="preview" data-preview data-theme="dark" dir="ltr" style="--scale: 1">
+      <div class="preview-head">
+        <span class="preview-avatar" aria-hidden="true">GK</span>
+        <div>
+          <p class="preview-name">George Karanikolas</p>
+          <p class="preview-role">Android & KMP Engineer</p>
+        </div>
+      </div>
+      <p class="preview-body">Writes about Compose, KMP and Android tooling.</p>
+      <span class="preview-button">Say hello</span>
+    </article>
+  </div>
+
+  <fieldset class="grid grid-cols-2 gap-2 font-mono text-xs">
+    <legend class="mb-3 uppercase tracking-[0.14em] text-muted">Sandbox controls</legend>
+    <button type="button" class="toggle" data-toggle="theme" aria-pressed="true">Dark theme</button>
+    <button type="button" class="toggle" data-toggle="rtl" aria-pressed="false">RTL layout</button>
+    <button type="button" class="toggle" data-toggle="contrast" aria-pressed="false">High contrast</button>
+    <div class="col-span-2 mt-2">
+      <p class="mb-2 text-muted" id="font-scale-label">Font scale</p>
+      <div class="flex gap-1.5" role="group" aria-labelledby="font-scale-label">
+        {
+          scales.map((s, i) => (
+            <button type="button" class="scale" data-scale={s} aria-pressed={i === 0 ? "true" : "false"}>
+              {s}×
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<style>
+  .toggle,
+  .scale {
+    min-height: 2.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    color: var(--color-paper);
+    transition:
+      border-color 150ms ease-out,
+      background-color 150ms ease-out,
+      color 150ms ease-out;
+  }
+
+  .toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.9rem;
+  }
+
+  .toggle::after {
+    content: "off";
+    color: var(--color-muted);
+  }
+
+  .toggle[aria-pressed="true"]::after {
+    content: "on";
+    color: var(--color-lime);
+  }
+
+  .scale {
+    flex: 1;
+  }
+
+  .scale[aria-pressed="true"] {
+    background: var(--color-lime);
+    border-color: var(--color-lime);
+    color: var(--color-ink);
+  }
+
+  @media (hover: hover) {
+    .toggle:hover,
+    .scale:hover {
+      border-color: var(--color-paper);
+    }
+  }
+
+  .preview {
+    --bg: #1b1d22;
+    --fg: #e8eaf0;
+    --muted: #9aa1b0;
+    --accent: #8ab4ff;
+    --on-accent: #0b1a33;
+    width: 100%;
+    max-width: 18rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: calc(0.875rem * var(--scale));
+    line-height: 1.4;
+    transition:
+      background-color 200ms ease-out,
+      color 200ms ease-out;
+  }
+
+  .preview[data-theme="light"] {
+    --bg: #f6f6f9;
+    --fg: #16181d;
+    --muted: #5b6070;
+    --accent: #2457c5;
+    --on-accent: #ffffff;
+  }
+
+  .preview[data-contrast="high"] {
+    --muted: var(--fg);
+    --accent: var(--fg);
+    --on-accent: var(--bg);
+    outline: 2px solid var(--fg);
+  }
+
+  .preview-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+
+  .preview-avatar {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.6em;
+    height: 2.6em;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 700;
+  }
+
+  .preview-name {
+    font-weight: 600;
+  }
+
+  .preview-role,
+  .preview-body {
+    color: var(--muted);
+  }
+
+  .preview-body {
+    margin-top: 0.8em;
+  }
+
+  .preview-button {
+    display: inline-block;
+    margin-top: 0.9em;
+    padding: 0.5em 1em;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .preview {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  for (const sandbox of document.querySelectorAll<HTMLElement>(".sandbox")) {
+    const preview = sandbox.querySelector<HTMLElement>("[data-preview]")!;
+
+    sandbox.querySelectorAll<HTMLButtonElement>("[data-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const on = button.getAttribute("aria-pressed") !== "true";
+        button.setAttribute("aria-pressed", String(on));
+        switch (button.dataset.toggle) {
+          case "theme":
+            preview.dataset.theme = on ? "dark" : "light";
+            break;
+          case "rtl":
+            preview.dir = on ? "rtl" : "ltr";
+            break;
+          case "contrast":
+            if (on) preview.dataset.contrast = "high";
+            else delete preview.dataset.contrast;
+            break;
+        }
+      });
+    });
+
+    const scaleButtons = [...sandbox.querySelectorAll<HTMLButtonElement>("[data-scale]")];
+    scaleButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        scaleButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+        preview.style.setProperty("--scale", button.dataset.scale!);
+      });
+    });
+  }
+</script>

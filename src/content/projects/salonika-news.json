@@ -1,0 +1,12 @@
+{
+  "order": 6,
+  "title": "Salonika News",
+  "featured": false,
+  "summary": "Local news for Thessaloniki. Readers sign in and submit articles, which go live after review.",
+  "image": "./salonika-news.png",
+  "imageAlt": "Salonika News app icon",
+  "tech": ["Kotlin", "Firebase Auth", "Firebase DB", "Navigation"],
+  "links": [
+    { "label": "Source", "href": "https://github.com/SeijinD/Salonika-News" }
+  ]
+}

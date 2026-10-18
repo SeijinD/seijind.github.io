@@ -1,0 +1,80 @@
+---
+import { Font, getImage } from "astro:assets";
+import profile from "../assets/profile.jpg";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = await getImage({ src: profile, width: 600, format: "jpg" });
+const favicon = await getImage({ src: profile, width: 64, format: "png" });
+const ogImageUrl = new URL(ogImage.src, Astro.site);
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "George Karanikolas",
+  alternateName: "SeijinD",
+  jobTitle: "Android & Kotlin Multiplatform Engineer",
+  url: Astro.site?.href,
+  image: ogImageUrl.href,
+  address: { "@type": "PostalAddress", addressLocality: "Thessaloniki", addressCountry: "GR" },
+  worksFor: { "@type": "Organization", name: "Arx.Net", url: "https://web.arx.net/" },
+  sameAs: [
+    "https://www.linkedin.com/in/seijind",
+    "https://github.com/seijind",
+    "https://medium.com/@seijind",
+    "https://dev.to/seijind",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={favicon.src} type="image/png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#15120e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <Font cssVariable="--font-fraunces" preload />
+    <Font cssVariable="--font-instrument" preload />
+    <Font cssVariable="--font-jetbrains" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+  </head>
+  <body class="min-h-dvh">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-lime focus:px-4 focus:py-2 focus:text-ink"
+    >
+      Skip to content
+    </a>
+    <slot />
+    <script>
+      console.log(
+        "%cLooking under the hood?%c\nSource: https://github.com/SeijinD/seijind.github.io\nTry ↑ ↑ ↓ ↓ ← → ← → B A on this page.",
+        "font: 600 16px serif; color: #c8f26a",
+        "font: 12px monospace",
+      );
+    </script>
+  </body>
+</html>

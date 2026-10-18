@@ -1,0 +1,22 @@
+[
+  {
+    "id": "arx-full-time", "order": 1,
+    "period": "Apr 2022 – now",
+    "title": "Android Developer",
+    "place": "Arx.Net · Thessaloniki",
+    "points": [
+      "Build and ship production Android apps in Kotlin with MVVM/MVI and Jetpack Compose.",
+      "Integrate REST APIs and take features from idea to release in an Agile team."
+    ]
+  },
+  {
+    "id": "arx-internship", "order": 2,
+    "period": "Oct 2021 – Mar 2022",
+    "title": "Android Developer, intern",
+    "place": "Arx.Net · Thessaloniki",
+    "points": [
+      "Shipped features into production apps.",
+      "Fixed bugs, tuned performance and refactored legacy code with senior engineers."
+    ]
+  }
+]

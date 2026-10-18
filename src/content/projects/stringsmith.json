@@ -1,0 +1,13 @@
+{
+  "order": 1,
+  "title": "StringSmith",
+  "featured": true,
+  "summary": "An Android Studio plugin that takes the busywork out of strings.xml. Press Alt+Enter on a hardcoded literal and it picks the right reference for the context: stringResource in a composable, getString in an Activity, Res.string in Compose Multiplatform. It also catches duplicates and flags unused resources. Published on the JetBrains Marketplace.",
+  "image": "./stringsmith.png",
+  "imageAlt": "StringSmith quick-fix in Android Studio: Extract to strings.xml, with a table of the reference used in each context.",
+  "tech": ["Kotlin", "IntelliJ Platform", "Android Studio", "Compose Multiplatform"],
+  "links": [
+    { "label": "JetBrains Marketplace", "href": "https://plugins.jetbrains.com/plugin/32198-stringsmith--android-strings-toolkit" },
+    { "label": "Source", "href": "https://github.com/SeijinD/stringsmith" }
+  ]
+}

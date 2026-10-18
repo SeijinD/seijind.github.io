@@ -1,0 +1,12 @@
+{
+  "order": 5,
+  "title": "CM Free Rewards",
+  "featured": false,
+  "summary": "Daily free spins and coins in one place. Published on Google Play, 1k+ organic installs.",
+  "image": "./cm-free-rewards.png",
+  "imageAlt": "CM Free Rewards app icon",
+  "tech": ["Android", "Kotlin"],
+  "links": [
+    { "label": "Google Play", "href": "https://play.google.com/store/apps/details?id=eu.seijindemon.cmfreerewards" }
+  ]
+}

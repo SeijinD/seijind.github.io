@@ -1,0 +1,275 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import CodeCard from "../components/CodeCard.astro";
+import SandboxDemo from "../components/SandboxDemo.astro";
+import WasmDiagram from "../components/WasmDiagram.astro";
+import Section from "../components/Section.astro";
+import Timeline from "../components/Timeline.astro";
+import Terminal from "../components/Terminal.astro";
+import Icon from "../components/Icon.astro";
+
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) => a.data.order - b.data.order;
+const projects = (await getCollection("projects")).sort(byOrder);
+const featured = projects.filter((p) => p.data.featured);
+const other = projects.filter((p) => !p.data.featured);
+const experience = (await getCollection("experience")).sort(byOrder);
+const education = (await getCollection("education")).sort(byOrder);
+const certifications = (await getCollection("certifications")).sort(byOrder);
+const skills = (await getCollection("skills")).sort(byOrder);
+const articles = (await getCollection("articles")).sort(byOrder);
+const strengths = (await getCollection("strengths")).sort(byOrder);
+
+const email = "seijindemon@protonmail.com";
+const resume = "https://drive.google.com/file/d/1hJU7ie3gZvgqcMQ1HcY3TH0jy-LaDmlW/view?usp=sharing";
+const socials = [
+  { label: "Email", href: `mailto:${email}`, icon: "mail" },
+  { label: "GitHub", href: "https://github.com/seijind", icon: "github" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/seijind", icon: "linkedin" },
+  { label: "Medium", href: "https://medium.com/@seijind", icon: "medium" },
+  { label: "Dev.to", href: "https://dev.to/seijind", icon: "devdotto" },
+  { label: "Google Play", href: "https://play.google.com/store/apps/developer?id=SeijinD", icon: "googleplay" },
+] as const;
+const facts = [
+  { value: "5+ yrs", label: "building Android apps in production" },
+  { value: "Arx.Net", label: "Android developer since 2021" },
+  { value: "1 plugin", label: "live on the JetBrains Marketplace" },
+  { value: `${articles.length} articles`, label: "on Compose, KMP and Kotlin" },
+  { value: "KMP", label: "Compose Multiplatform, Wasm, Ktor" },
+];
+const year = new Date().getFullYear();
+
+const terminalData = {
+  whoami: "George Karanikolas. Android & KMP Engineer at Arx.Net, Thessaloniki. 5+ years of Kotlin in production.",
+  projects: projects.map((p) => ({ title: p.data.title, href: p.data.links[0].href })),
+  articles: articles.map((a) => ({ title: a.data.title, href: a.data.href })),
+  skills: skills.map((s) => ({ group: s.data.group, items: s.data.items })),
+  email,
+  resume,
+};
+---
+
+<Layout
+  title="George Karanikolas · Android & Kotlin Multiplatform Engineer"
+  description="George Karanikolas (SeijinD), Android and Kotlin Multiplatform engineer in Thessaloniki. 5+ years of Kotlin and Jetpack Compose in production, the StringSmith Android Studio plugin, and articles on Compose and KMP."
+>
+  <header class="sticky top-0 z-40 border-b border-line/60 bg-ink/90 backdrop-blur-sm">
+    <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8" aria-label="Main">
+      <a href="#top" class="font-display text-xl italic tracking-tight">SeijinD</a>
+      <ul class="flex items-center gap-5 font-mono text-xs uppercase tracking-[0.12em] sm:gap-7">
+        <li><a class="py-3 text-muted transition-colors hover:text-paper" href="#work">Work</a></li>
+        <li class="hidden md:block">
+          <a class="py-3 text-muted transition-colors hover:text-paper" href="#writing">Writing</a>
+        </li>
+        <li class="hidden sm:block">
+          <a class="py-3 text-muted transition-colors hover:text-paper" href="#experience">Experience</a>
+        </li>
+        <li><a class="py-3 text-muted transition-colors hover:text-paper" href="#contact">Contact</a></li>
+        <li><a class="py-3 text-lime transition-colors hover:text-paper" href={resume}>Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <Hero resume={resume} socials={[...socials]} facts={facts} />
+
+    <Section id="about" index="01" title="About">
+      <div class="grid gap-10 xl:grid-cols-[1fr_1fr] xl:items-start">
+        <div class="max-w-[60ch] space-y-5 text-lg text-muted">
+          <p>
+            I have built Android apps at <span class="text-paper">Arx.Net</span> since 2021, first as an intern and now
+            as a full-time developer, with Kotlin, Jetpack Compose and MVVM/MVI.
+          </p>
+          <p>
+            I like the parts of an app where things quietly go wrong: state that has to agree with a server, animations
+            that have to land on the right frame, strings that have to exist in every locale. When I solve one, it
+            usually becomes a library, a plugin or an article.
+          </p>
+          <p>Lately that means Kotlin beyond Android: Compose Multiplatform, Kotlin/Wasm and Ktor.</p>
+        </div>
+        <CodeCard />
+      </div>
+    </Section>
+
+    <Section id="strengths" index="02" title="Why work with me">
+      <ol class="divide-y divide-line border-y border-line">
+        {
+          strengths.map(({ data }, i) => (
+            <li class="grid gap-2 py-6 sm:grid-cols-[3rem_1fr_1.3fr] sm:gap-6">
+              <span class="font-mono text-xs text-lime sm:pt-1.5">{String(i + 1).padStart(2, "0")}</span>
+              <h3 class="font-display text-xl font-medium leading-snug md:text-2xl">{data.title}</h3>
+              <p class="text-muted">{data.proof}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </Section>
+
+    <Section id="work" index="03" title="Selected work">
+      <div class="space-y-24">
+        {
+          featured.map(({ data }) => (
+            <article class="grid gap-7 md:grid-cols-[1.1fr_1fr] md:items-start md:gap-10">
+              <div class="md:order-2">
+                <h3 class="font-display text-3xl font-medium tracking-tight">{data.title}</h3>
+                <p class="mt-3 text-muted">{data.summary}</p>
+                <p class="mt-4 font-mono text-xs leading-relaxed text-muted">{data.tech.join(" · ")}</p>
+                <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                  {data.links.map((l) => (
+                    <li>
+                      <a class="link-underline inline-block py-1.5 font-medium" href={l.href}>
+                        {l.label} ↗
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="md:order-1">
+                {data.demo === "sandbox" && <SandboxDemo />}
+                {data.demo === "wasm" && <WasmDiagram />}
+                {data.image && (
+                  <Image
+                    src={data.image}
+                    alt={data.imageAlt ?? ""}
+                    widths={[480, 800]}
+                    sizes="(min-width: 768px) 32rem, 100vw"
+                    class="aspect-[16/9] w-full rounded-xl border border-line object-cover object-left-top"
+                  />
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <h3 class="mt-24 font-mono text-xs uppercase tracking-[0.14em] text-muted">Also shipped</h3>
+      <ul class="mt-4 divide-y divide-line border-y border-line">
+        {
+          other.map(({ data }) => (
+            <li class="flex gap-5 py-6">
+              {data.image && (
+                <Image
+                  src={data.image}
+                  alt={data.imageAlt ?? ""}
+                  width={56}
+                  height={56}
+                  class="size-14 shrink-0 rounded-xl border border-line"
+                />
+              )}
+              <div class="min-w-0">
+                <h4 class="font-display text-xl font-medium">{data.title}</h4>
+                <p class="mt-1 text-muted">{data.summary}</p>
+                <p class="mt-2 font-mono text-xs text-muted">{data.tech.join(" · ")}</p>
+                <ul class="mt-2 flex flex-wrap gap-x-6">
+                  {data.links.map((l) => (
+                    <li>
+                      <a class="link-underline inline-block py-1.5 font-medium" href={l.href}>
+                        {l.label} ↗
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+
+    <Section id="writing" index="04" title="Writing">
+      <ul class="divide-y divide-line border-y border-line">
+        {
+          articles.map(({ data }) => (
+            <li>
+              <a href={data.href} class="group grid gap-1.5 py-6 sm:grid-cols-[1fr_auto] sm:gap-8">
+                <span>
+                  <span class="block font-display text-xl font-medium leading-snug transition-colors group-hover:text-lime md:text-2xl">
+                    {data.title}
+                  </span>
+                  <span class="mt-1.5 block text-muted">{data.summary}</span>
+                </span>
+                <span class="font-mono text-xs text-muted sm:pt-2">Medium ↗</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+
+    <Section id="experience" index="05" title="Experience">
+      <Timeline entries={experience} />
+    </Section>
+
+    <Section id="skills" index="06" title="Toolkit">
+      <div class="grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
+        {
+          skills.map(({ data }) => (
+            <div>
+              <h3 class="font-mono text-xs uppercase tracking-[0.14em] text-muted">{data.group}</h3>
+              <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 sm:block sm:space-y-1.5">
+                {data.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section id="education" index="07" title="Education">
+      <Timeline entries={education} />
+      <h3 class="mt-16 font-mono text-xs uppercase tracking-[0.14em] text-muted">Recent certifications</h3>
+      <ul class="mt-4 grid gap-x-10 sm:grid-cols-2">
+        {
+          certifications.map(({ data }) => (
+            <li class="border-b border-line py-4">
+              <p class="font-medium leading-snug">{data.title}</p>
+              <p class="mt-1 font-mono text-xs text-muted">
+                {data.issuer} · {data.date}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+  </main>
+
+  <footer id="contact" class="border-t border-line bg-surface">
+    <div class="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+      <p class="font-mono text-xs uppercase tracking-[0.14em] text-lime">08 · Contact</p>
+      <h2 class="mt-4 max-w-[20ch] font-display text-4xl font-normal leading-tight tracking-tight md:text-5xl">
+        Building with Android or KMP? Let's talk.
+      </h2>
+      <a
+        class="link-underline mt-8 inline-block break-all font-display text-2xl italic md:text-3xl"
+        href={`mailto:${email}`}>{email}</a
+      >
+      <ul class="mt-10 flex flex-wrap gap-1" aria-label="Profiles">
+        {
+          socials.map((s) => (
+            <li>
+              <a
+                href={s.href}
+                class="inline-flex min-h-11 items-center gap-2 rounded-full px-3 font-mono text-sm text-muted transition-colors hover:text-lime"
+              >
+                <Icon name={s.icon} class="size-4" />
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-16 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted">
+        <p>© {year} George Karanikolas</p>
+        <button type="button" class="min-h-11 transition-colors hover:text-lime" data-open-terminal aria-label="Open terminal">
+          ↑↑↓↓←→←→BA
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <Terminal data={terminalData} />
+</Layout>

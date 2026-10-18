@@ -1,0 +1,32 @@
+---
+const layers = [
+  { source: "commonMain", items: ["NoteEntity · @Entity", "NoteDao · @Dao", "AppDatabase", "expect getDatabaseBuilder()"] },
+  { source: "wasmJsMain", items: ["actual getDatabaseBuilder()", "WebWorkerSQLiteDriver", "Web Worker"] },
+  { source: "browser", items: ["SQLite (Wasm)", "OPFS storage"] },
+];
+---
+
+<figure class="rounded-xl border border-line bg-surface p-5 font-mono text-xs sm:text-[0.8rem]">
+  <ol class="space-y-3">
+    {
+      layers.map((layer, i) => (
+        <li>
+          <div class="rounded-lg border border-line p-3.5">
+            <p class="uppercase tracking-[0.14em] text-lime">{layer.source}</p>
+            <ul class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-paper">
+              {layer.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+          {i < layers.length - 1 && (
+            <p class="py-1 pl-4 text-muted" aria-hidden="true">
+              ↓
+            </p>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+  <figcaption class="mt-4 text-muted">Same Room code as Android. Data survives a page refresh.</figcaption>
+</figure>

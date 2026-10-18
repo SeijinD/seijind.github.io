@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ihu", "order": 1,
+    "period": "2017 – 2021",
+    "title": "BSc Computer Software Engineering and Electronics",
+    "place": "International Hellenic University · Thessaloniki",
+    "points": ["Thesis: Student IEE-IHU, an Android app for the department's students (Kotlin, Firebase, MVVM, Room)."]
+  },
+  {
+    "id": "workshops", "order": 2,
+    "period": "2019 – 2021",
+    "title": "Workshop instructor",
+    "place": "IEEE Student Branch and universities",
+    "points": ["Create Your First App (Android)", "MongoDB and Telegram integration labs"]
+  },
+  {
+    "id": "communities", "order": 3,
+    "period": "2018 – 2022",
+    "title": "Student communities",
+    "place": "IEEE Student Branch IHU · OWASP ATEITH Student Chapter",
+    "points": []
+  }
+]

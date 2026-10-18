@@ -1,0 +1,7 @@
+[
+  { "id": "ships", "order": 1, "title": "Ships to production", "proof": "Five years building and releasing Android apps at Arx.Net, from intern to full-time developer." },
+  { "id": "tools", "order": 2, "title": "Builds tools other developers use", "proof": "StringSmith is live on the JetBrains Marketplace. Preview Sandbox and Flip To Win are open source." },
+  { "id": "state", "order": 3, "title": "Gets the state right first", "proof": "Claim before reveal, unidirectional data flow, immutable state and unit tests around the tricky parts." },
+  { "id": "kotlin", "order": 4, "title": "Takes Kotlin beyond Android", "proof": "Kotlin Multiplatform, Compose Multiplatform, Kotlin/Wasm and Ktor, in side projects and recent certifications." },
+  { "id": "explains", "order": 5, "title": "Explains the work", "proof": "Four technical articles on Medium, and Android workshops taught at the IEEE Student Branch." }
+]

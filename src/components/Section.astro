@@ -1,0 +1,25 @@
+---
+interface Props {
+  id: string;
+  index: string;
+  title: string;
+}
+
+const { id, index, title } = Astro.props;
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class="border-t border-line py-20 md:py-28">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-[11rem_1fr] lg:gap-12 md:px-8">
+    <div>
+      <div class="lg:sticky lg:top-24">
+        <p class="font-mono text-xs uppercase tracking-[0.14em] text-lime">{index}</p>
+        <h2 id={`${id}-title`} class="mt-2 font-display text-3xl font-medium tracking-tight lg:text-2xl">
+          {title}
+        </h2>
+      </div>
+    </div>
+    <div>
+      <slot />
+    </div>
+  </div>
+</section>

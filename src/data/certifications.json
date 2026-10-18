@@ -1,0 +1,8 @@
+[
+  { "id": "kmp-libraries", "order": 1, "title": "Kotlin Multiplatform Libraries", "issuer": "LinkedIn Learning", "date": "Mar 2026" },
+  { "id": "ktor-kmp", "order": 2, "title": "Exploring Ktor with Kotlin Multiplatform and Compose", "issuer": "LinkedIn Learning", "date": "Mar 2026" },
+  { "id": "kmp-development", "order": 3, "title": "Kotlin Multiplatform Development", "issuer": "LinkedIn Learning", "date": "Aug 2025" },
+  { "id": "android-compose", "order": 4, "title": "Android Compose with Kotlin", "issuer": "LinkedIn Learning", "date": "Aug 2025" },
+  { "id": "kmp-masterclass", "order": 5, "title": "Kotlin Multiplatform Masterclass: KMP, KMM, Android, iOS", "issuer": "Udemy", "date": "2026" },
+  { "id": "cmp-course", "order": 6, "title": "Compose Multiplatform (Android/iOS): Mobile App Development", "issuer": "Udemy", "date": "2026" }
+]
