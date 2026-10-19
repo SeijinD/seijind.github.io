@@ -20,11 +20,8 @@ export const en = {
   hero: {
     role: "Android & KMP Engineer",
     location: "Thessaloniki, Greece",
-    taglineStart: "I build Android apps where the UI",
-    taglineFeels: "feels",
-    taglineMiddle: "right and the state",
-    taglineIs: "is",
-    taglineEnd: "right.",
+    taglineStart: "You see a screen.",
+    taglineEnd: "I see everything that could go wrong.",
     stackLabel: "Core stack",
     chips: ["Kotlin", "Jetpack Compose", "Kotlin Multiplatform"],
     profilesLabel: "Primary profiles",

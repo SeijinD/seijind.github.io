@@ -20,11 +20,8 @@ export const el = {
   hero: {
     role: "Android & KMP Engineer",
     location: "Θεσσαλονίκη, Ελλάδα",
-    taglineStart: "Δημιουργώ Android εφαρμογές όπου το UI",
-    taglineFeels: "δείχνει",
-    taglineMiddle: "σωστό και το state",
-    taglineIs: "είναι",
-    taglineEnd: "σωστό.",
+    taglineStart: "Εσύ βλέπεις μια οθόνη.",
+    taglineEnd: "Εγώ βλέπω όλα όσα μπορούν να πάνε στραβά.",
     stackLabel: "Βασικό stack",
     chips: ["Kotlin", "Jetpack Compose", "Kotlin Multiplatform"],
     profilesLabel: "Κύρια προφίλ",
