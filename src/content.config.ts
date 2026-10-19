@@ -3,9 +3,12 @@ import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const link = z.object({
-  label: z.string(),
+  label: z.enum(["marketplace", "source", "article"]),
   href: z.url(),
 });
+
+const localizedText = z.object({ en: z.string(), el: z.string() });
+const localizedList = z.object({ en: z.array(z.string()), el: z.array(z.string()) });
 
 const projects = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/content/projects" }),
@@ -14,9 +17,12 @@ const projects = defineCollection({
       order: z.number(),
       title: z.string(),
       featured: z.boolean(),
-      summary: z.string(),
+      outcome: localizedText,
+      contribution: localizedText,
+      detail: localizedText,
+      proof: localizedText.optional(),
       image: image().optional(),
-      imageAlt: z.string().optional(),
+      imageAlt: localizedText.optional(),
       demo: z.enum(["sandbox", "wasm"]).optional(),
       tech: z.array(z.string()),
       links: z.array(link),
@@ -26,10 +32,10 @@ const projects = defineCollection({
 const timelineEntry = z.object({
   id: z.string(),
   order: z.number(),
-  period: z.string(),
-  title: z.string(),
-  place: z.string(),
-  points: z.array(z.string()),
+  period: localizedText,
+  title: localizedText,
+  place: localizedText,
+  points: localizedList,
 });
 
 const experience = defineCollection({
@@ -58,7 +64,7 @@ const skills = defineCollection({
   schema: z.object({
     id: z.string(),
     order: z.number(),
-    group: z.string(),
+    group: localizedText,
     items: z.array(z.string()),
   }),
 });
@@ -69,7 +75,7 @@ const articles = defineCollection({
     id: z.string(),
     order: z.number(),
     title: z.string(),
-    summary: z.string(),
+    summary: localizedText,
     href: z.url(),
   }),
 });
@@ -79,8 +85,8 @@ const strengths = defineCollection({
   schema: z.object({
     id: z.string(),
     order: z.number(),
-    title: z.string(),
-    proof: z.string(),
+    title: localizedText,
+    proof: localizedText,
   }),
 });
 

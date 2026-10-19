@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#15120e"/>
+  <rect x="64" y="64" width="1072" height="502" rx="28" fill="#1e1a15" stroke="#342d24" stroke-width="2"/>
+  <circle cx="1020" cy="166" r="74" fill="#c8f26a"/>
+  <path d="M946 430h138M946 470h92" stroke="#c8f26a" stroke-width="10" stroke-linecap="round"/>
+  <text x="112" y="170" fill="#a99f8e" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">ANDROID + KOTLIN MULTIPLATFORM</text>
+  <text x="112" y="300" fill="#ede5d6" font-family="Georgia, serif" font-size="82">George</text>
+  <text x="112" y="390" fill="#ede5d6" font-family="Georgia, serif" font-size="82">Karanikolas</text>
+  <text x="112" y="492" fill="#c8f26a" font-family="Arial, sans-serif" font-size="34">Production apps · developer tools · technical writing</text>
+</svg>

@@ -2,11 +2,23 @@
   "order": 4,
   "title": "KMP Web Room",
   "featured": true,
-  "summary": "Room 3 running in the browser. A Kotlin Multiplatform app compiled to Wasm keeps its data in a real SQLite database on the Origin Private File System, so notes survive a page refresh. Shared entities and DAOs in commonMain, a Web Worker driver in wasmJsMain.",
+  "outcome": {
+    "en": "Runs a persistent Room database inside the browser, allowing Kotlin code to survive refreshes without a backend.",
+    "el": "Τρέχει persistent Room database μέσα στον browser, ώστε Kotlin code να διατηρεί δεδομένα μετά από refresh χωρίς backend."
+  },
+  "contribution": {
+    "en": "I built a minimal Kotlin Multiplatform reference app with shared entities, DAO and ViewModel across Android and web.",
+    "el": "Δημιούργησα minimal Kotlin Multiplatform reference app με κοινά entities, DAO και ViewModel για Android και web."
+  },
+  "detail": {
+    "en": "The Wasm target connects Room 3 to SQLite through a Web Worker and stores the database in the Origin Private File System.",
+    "el": "Το Wasm target συνδέει το Room 3 με SQLite μέσω Web Worker και αποθηκεύει τη database στο Origin Private File System."
+  },
+  "proof": { "en": "Real SQLite persistence in Kotlin/Wasm", "el": "Πραγματικό SQLite persistence σε Kotlin/Wasm" },
   "demo": "wasm",
   "tech": ["Kotlin Multiplatform", "Compose Multiplatform", "Room 3", "Kotlin/Wasm", "Koin"],
   "links": [
-    { "label": "Source", "href": "https://github.com/SeijinD/KMPWebRoom" },
-    { "label": "Article", "href": "https://medium.com/@seijind/room-database-in-the-browser-kotlin-wasm-and-sqlite-with-opfs-9c32cc6def61" }
+    { "label": "source", "href": "https://github.com/SeijinD/KMPWebRoom" },
+    { "label": "article", "href": "https://medium.com/@seijind/room-database-in-the-browser-kotlin-wasm-and-sqlite-with-opfs-9c32cc6def61" }
   ]
 }

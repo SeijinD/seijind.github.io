@@ -2,11 +2,12 @@
   "order": 5,
   "title": "CM Free Rewards",
   "featured": false,
-  "summary": "Daily free spins and coins in one place. Published on Google Play, 1k+ organic installs.",
+  "outcome": { "en": "Collected daily free spins and coins in one Android app.", "el": "Συγκέντρωνε καθημερινά free spins και coins σε μία Android εφαρμογή." },
+  "contribution": { "en": "I built and released the app independently.", "el": "Ανέπτυξα και δημοσίευσα την εφαρμογή ανεξάρτητα." },
+  "detail": { "en": "Previously published on Google Play.", "el": "Είχε δημοσιευτεί στο Google Play." },
+  "proof": { "en": "Reached 1k+ organic installs", "el": "Έφτασε τα 1k+ organic installs" },
   "image": "./cm-free-rewards.png",
-  "imageAlt": "CM Free Rewards app icon",
+  "imageAlt": { "en": "CM Free Rewards app icon", "el": "Εικονίδιο της εφαρμογής CM Free Rewards" },
   "tech": ["Android", "Kotlin"],
-  "links": [
-    { "label": "Google Play", "href": "https://play.google.com/store/apps/details?id=eu.seijindemon.cmfreerewards" }
-  ]
+  "links": []
 }

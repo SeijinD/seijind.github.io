@@ -7,6 +7,18 @@ interface Props {
     skills: { group: string; items: string[] }[];
     email: string;
     resume: string;
+    ui: {
+      title: string;
+      close: string;
+      command: string;
+      intro: string;
+      help: string;
+      notFound: string;
+      tryHelp: string;
+      resume: string;
+      permission: string;
+      writeTo: string;
+    };
   };
 }
 
@@ -19,18 +31,19 @@ const { data } = Astro.props;
   class="m-auto w-[min(42rem,calc(100vw-2rem))] rounded-xl border border-line bg-ink p-0 text-paper backdrop:bg-black/70"
 >
   <div class="flex items-center justify-between border-b border-line px-4 py-2.5 font-mono text-xs text-muted">
-    <h2 id="terminal-title">george@seijind: ~</h2>
+    <h2 id="terminal-title">{data.ui.title}</h2>
     <form method="dialog">
-      <button class="min-h-9 px-2 hover:text-lime" aria-label="Close terminal">esc</button>
+      <button class="min-h-11 px-3 hover:text-lime" aria-label={data.ui.close}>esc</button>
     </form>
   </div>
   <div class="h-[min(24rem,60vh)] overflow-y-auto p-4 font-mono text-[0.8rem] leading-relaxed" data-scroll>
     <div data-output aria-live="polite"></div>
-    <form class="flex gap-2" data-prompt>
-      <label for="terminal-input" class="text-lime">$</label>
+    <form class="flex min-h-11 items-center gap-2" data-prompt>
+      <label for="terminal-input" class="sr-only">{data.ui.command}</label>
+      <span class="text-lime" aria-hidden="true">$</span>
       <input
         id="terminal-input"
-        class="min-w-0 flex-1 bg-transparent caret-lime outline-none"
+        class="min-h-11 min-w-0 flex-1 bg-transparent caret-lime outline-none"
         autocomplete="off"
         autocapitalize="off"
         spellcheck="false"
@@ -50,6 +63,18 @@ const { data } = Astro.props;
     skills: { group: string; items: string[] }[];
     email: string;
     resume: string;
+    ui: {
+      title: string;
+      close: string;
+      command: string;
+      intro: string;
+      help: string;
+      notFound: string;
+      tryHelp: string;
+      resume: string;
+      permission: string;
+      writeTo: string;
+    };
   };
 
   const dialog = document.querySelector<HTMLDialogElement>("#terminal")!;
@@ -78,16 +103,16 @@ const { data } = Astro.props;
   };
 
   const commands: Record<string, () => void> = {
-    help: () => print("whoami  projects  articles  skills  contact  resume  clear  exit"),
+    help: () => print(data.ui.help),
     whoami: () => print(data.whoami),
     projects: () => data.projects.forEach((p) => print(link(`- ${p.title}`, p.href))),
     articles: () => data.articles.forEach((a) => print(link(`- ${a.title}`, a.href))),
     skills: () => data.skills.forEach((s) => print(`${s.group}: ${s.items.join(", ")}`)),
     contact: () => print(link(data.email, `mailto:${data.email}`)),
-    resume: () => print(link("Open resume", data.resume)),
+    resume: () => print(link(data.ui.resume, data.resume)),
     clear: () => output.replaceChildren(),
     exit: () => dialog.close(),
-    "sudo hire-george": () => print("Permission granted.", link(`Write to ${data.email}`, `mailto:${data.email}`)),
+    "sudo hire-george": () => print(data.ui.permission, link(`${data.ui.writeTo} ${data.email}`, `mailto:${data.email}`)),
   };
 
   prompt.addEventListener("submit", (event) => {
@@ -98,12 +123,12 @@ const { data } = Astro.props;
     print(`$ ${command}`);
     const run = commands[command];
     if (run) run();
-    else print(`command not found: ${command}. Try "help".`);
+    else print(`${data.ui.notFound}: ${command}. ${data.ui.tryHelp}`);
   });
 
   const open = () => {
     if (dialog.open) return;
-    if (!output.hasChildNodes()) print("You found it. Type \"help\" to look around.");
+    if (!output.hasChildNodes()) print(data.ui.intro);
     dialog.showModal();
     input.focus();
   };

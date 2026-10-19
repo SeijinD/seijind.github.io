@@ -84,3 +84,10 @@ desktop.ini
 /.mcp.json
 /.codex/
 /AGENTS.md
+
+# llm-settings (local links)
+.claude/skills/
+.claude/rules/
+.agents/skills/
+/.mcp.json
+/.codex/

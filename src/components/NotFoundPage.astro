@@ -1,0 +1,38 @@
+---
+import type { Locale } from "../i18n";
+import { getUi } from "../i18n";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  locale: Locale;
+  alternatePath: string;
+}
+
+const { locale, alternatePath } = Astro.props;
+const t = getUi(locale);
+---
+
+<Layout
+  title={`404 · ${t.notFound.title}`}
+  description={t.notFound.description}
+  locale={locale}
+  alternatePath={alternatePath}
+  skipText={t.skip}
+  noindex
+>
+  <main id="main" class="grid min-h-dvh place-items-center px-5 py-16">
+    <div class="w-full max-w-3xl border-y border-line py-12 md:py-16">
+      <p class="font-mono text-sm text-lime">404</p>
+      <h1 class="mt-4 font-display text-5xl font-medium tracking-tight md:text-7xl">{t.notFound.title}</h1>
+      <p class="mt-5 max-w-[55ch] text-lg text-muted">{t.notFound.description}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="inline-flex min-h-12 items-center rounded-full bg-lime px-6 font-medium text-ink" href={t.paths.home}>{t.notFound.action}</a>
+        <a
+          class="inline-flex min-h-12 items-center rounded-full border border-line px-6 font-medium hover:border-paper"
+          href={alternatePath}
+          hreflang={locale === "el" ? "en" : "el"}
+        >{t.nav.language}</a>
+      </div>
+    </div>
+  </main>
+</Layout>

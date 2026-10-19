@@ -1,7 +1,29 @@
 [
-  { "id": "ships", "order": 1, "title": "Ships to production", "proof": "Five years building and releasing Android apps at Arx.Net, from intern to full-time developer." },
-  { "id": "tools", "order": 2, "title": "Builds tools other developers use", "proof": "StringSmith is live on the JetBrains Marketplace. Preview Sandbox and Flip To Win are open source." },
-  { "id": "state", "order": 3, "title": "Gets the state right first", "proof": "Claim before reveal, unidirectional data flow, immutable state and unit tests around the tricky parts." },
-  { "id": "kotlin", "order": 4, "title": "Takes Kotlin beyond Android", "proof": "Kotlin Multiplatform, Compose Multiplatform, Kotlin/Wasm and Ktor, in side projects and recent certifications." },
-  { "id": "explains", "order": 5, "title": "Explains the work", "proof": "Four technical articles on Medium, and Android workshops taught at the IEEE Student Branch." }
+  {
+    "id": "ships",
+    "order": 1,
+    "title": { "en": "Ships to production", "el": "Παραδίδει σε production" },
+    "proof": {
+      "en": "Five years building and releasing Android apps at Arx.Net, from intern to full-time developer.",
+      "el": "Πέντε χρόνια ανάπτυξης και δημοσίευσης Android εφαρμογών στην Arx.Net, από intern έως full-time developer."
+    }
+  },
+  {
+    "id": "tools",
+    "order": 2,
+    "title": { "en": "Builds tools developers can use", "el": "Δημιουργεί εργαλεία για developers" },
+    "proof": {
+      "en": "StringSmith is published on the JetBrains Marketplace; Preview Sandbox and Flip To Win are open source.",
+      "el": "Το StringSmith είναι δημοσιευμένο στο JetBrains Marketplace, ενώ τα Preview Sandbox και Flip To Win είναι open source."
+    }
+  },
+  {
+    "id": "state",
+    "order": 3,
+    "title": { "en": "Makes complex state understandable", "el": "Κάνει το σύνθετο state κατανοητό" },
+    "proof": {
+      "en": "Unidirectional data flow, explicit server coordination and tests around the transitions most likely to fail.",
+      "el": "Unidirectional data flow, σαφής συντονισμός με τον server και tests στις μεταβάσεις που είναι πιθανότερο να αποτύχουν."
+    }
+  }
 ]

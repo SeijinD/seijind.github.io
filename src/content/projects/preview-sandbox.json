@@ -2,11 +2,23 @@
   "order": 2,
   "title": "Preview Sandbox",
   "featured": true,
-  "summary": "Four locales, five font scales and two themes make forty @Preview functions for one screen. Preview Sandbox replaces them with a single wrapper and a control panel: switch theme, locale, font scale, RTL, dynamic color, bold text and high contrast while the UI runs. Try the idea below.",
+  "outcome": {
+    "en": "Replaces dozens of static Compose previews with one runtime environment for exploring UI configurations.",
+    "el": "Αντικαθιστά δεκάδες static Compose previews με ένα runtime περιβάλλον εξερεύνησης UI configurations."
+  },
+  "contribution": {
+    "en": "I designed a single wrapper and control panel for theme, locale, font scale, RTL, dynamic color, bold text and high contrast.",
+    "el": "Σχεδίασα ένα wrapper και control panel για theme, locale, font scale, RTL, dynamic color, bold text και high contrast."
+  },
+  "detail": {
+    "en": "CompositionLocal overrides apply changes while the screen runs; rememberSaveable keeps the selected configuration across recreation.",
+    "el": "CompositionLocal overrides εφαρμόζουν τις αλλαγές όσο τρέχει η οθόνη, ενώ το rememberSaveable διατηρεί το configuration μετά από recreation."
+  },
+  "proof": { "en": "40 preview combinations reduced to one interactive wrapper", "el": "40 preview combinations σε ένα interactive wrapper" },
   "demo": "sandbox",
   "tech": ["Kotlin", "Jetpack Compose", "Accessibility"],
   "links": [
-    { "label": "Source", "href": "https://github.com/SeijinD/PreviewSandbox" },
-    { "label": "Article", "href": "https://medium.com/@seijind/stop-writing-20-preview-functions-build-a-runtime-sandbox-instead-7cf370226744" }
+    { "label": "source", "href": "https://github.com/SeijinD/PreviewSandbox" },
+    { "label": "article", "href": "https://medium.com/@seijind/stop-writing-20-preview-functions-build-a-runtime-sandbox-instead-7cf370226744" }
   ]
 }

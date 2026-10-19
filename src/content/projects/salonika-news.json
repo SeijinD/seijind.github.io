@@ -2,11 +2,13 @@
   "order": 6,
   "title": "Salonika News",
   "featured": false,
-  "summary": "Local news for Thessaloniki. Readers sign in and submit articles, which go live after review.",
+  "outcome": { "en": "Local news for Thessaloniki with community submissions.", "el": "Τοπικές ειδήσεις για τη Θεσσαλονίκη με submissions από την κοινότητα." },
+  "contribution": { "en": "I built authentication, article submission and editorial review flows.", "el": "Υλοποίησα authentication, article submission και editorial review flows." },
+  "detail": { "en": "Submitted articles go live only after review.", "el": "Τα άρθρα δημοσιεύονται μόνο μετά από έλεγχο." },
   "image": "./salonika-news.png",
-  "imageAlt": "Salonika News app icon",
+  "imageAlt": { "en": "Salonika News app icon", "el": "Εικονίδιο της εφαρμογής Salonika News" },
   "tech": ["Kotlin", "Firebase Auth", "Firebase DB", "Navigation"],
   "links": [
-    { "label": "Source", "href": "https://github.com/SeijinD/Salonika-News" }
+    { "label": "source", "href": "https://github.com/SeijinD/Salonika-News" }
   ]
 }

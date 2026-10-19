@@ -1,23 +1,29 @@
 [
   {
     "id": "ihu", "order": 1,
-    "period": "2017 – 2021",
-    "title": "BSc Computer Software Engineering and Electronics",
-    "place": "International Hellenic University · Thessaloniki",
-    "points": ["Thesis: Student IEE-IHU, an Android app for the department's students (Kotlin, Firebase, MVVM, Room)."]
+    "period": { "en": "2017 – 2021", "el": "2017 – 2021" },
+    "title": { "en": "BSc Computer Software Engineering and Electronics", "el": "Πτυχίο Μηχανικού Πληροφορικής και Ηλεκτρονικών Συστημάτων" },
+    "place": { "en": "International Hellenic University · Thessaloniki", "el": "Διεθνές Πανεπιστήμιο Ελλάδος · Θεσσαλονίκη" },
+    "points": {
+      "en": ["Thesis: Student IEE-IHU, an Android app for the department's students (Kotlin, Firebase, MVVM, Room)."],
+      "el": ["Πτυχιακή: Student IEE-IHU, Android εφαρμογή για τους φοιτητές του τμήματος (Kotlin, Firebase, MVVM, Room)."]
+    }
   },
   {
     "id": "workshops", "order": 2,
-    "period": "2019 – 2021",
-    "title": "Workshop instructor",
-    "place": "IEEE Student Branch and universities",
-    "points": ["Create Your First App (Android)", "MongoDB and Telegram integration labs"]
+    "period": { "en": "2019 – 2021", "el": "2019 – 2021" },
+    "title": { "en": "Workshop instructor", "el": "Εισηγητής workshops" },
+    "place": { "en": "IEEE Student Branch and universities", "el": "IEEE Student Branch και πανεπιστήμια" },
+    "points": {
+      "en": ["Create Your First App (Android)", "MongoDB and Telegram integration labs"],
+      "el": ["Create Your First App (Android)", "Εργαστήρια MongoDB και Telegram integration"]
+    }
   },
   {
     "id": "communities", "order": 3,
-    "period": "2018 – 2022",
-    "title": "Student communities",
-    "place": "IEEE Student Branch IHU · OWASP ATEITH Student Chapter",
-    "points": []
+    "period": { "en": "2018 – 2022", "el": "2018 – 2022" },
+    "title": { "en": "Student communities", "el": "Φοιτητικές κοινότητες" },
+    "place": { "en": "IEEE Student Branch IHU · OWASP ATEITH Student Chapter", "el": "IEEE Student Branch IHU · OWASP ATEITH Student Chapter" },
+    "points": { "en": [], "el": [] }
   }
 ]

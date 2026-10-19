@@ -1,0 +1,274 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import type { Locale } from "../i18n";
+import { getUi } from "../i18n";
+import Layout from "../layouts/Layout.astro";
+import Hero from "./Hero.astro";
+import Icon from "./Icon.astro";
+import SandboxDemo from "./SandboxDemo.astro";
+import Section from "./Section.astro";
+import Terminal from "./Terminal.astro";
+import Timeline from "./Timeline.astro";
+import WasmDiagram from "./WasmDiagram.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getUi(locale);
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) => a.data.order - b.data.order;
+const projects = (await getCollection("projects")).sort(byOrder);
+const featured = projects.filter((project) => project.data.featured);
+const other = projects.filter((project) => !project.data.featured);
+const experience = (await getCollection("experience")).sort(byOrder);
+const education = (await getCollection("education")).sort(byOrder);
+const certifications = (await getCollection("certifications")).sort(byOrder).slice(0, 4);
+const skills = (await getCollection("skills")).sort(byOrder);
+const articles = (await getCollection("articles")).sort(byOrder);
+const strengths = (await getCollection("strengths")).sort(byOrder);
+
+const email = "seijindemon@protonmail.com";
+const resume = "https://drive.google.com/file/d/1hJU7ie3gZvgqcMQ1HcY3TH0jy-LaDmlW/view?usp=sharing";
+const primarySocials = [
+  { label: "Email", href: `mailto:${email}`, icon: "mail" },
+  { label: "GitHub", href: "https://github.com/seijind", icon: "github" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/seijind", icon: "linkedin" },
+] as const;
+const footerSocials = [
+  ...primarySocials,
+  { label: "Medium", href: "https://medium.com/@seijind", icon: "medium" },
+  { label: "Dev.to", href: "https://dev.to/seijind", icon: "devdotto" },
+] as const;
+const year = new Date().getFullYear();
+const localized = <T extends { en: string; el: string }>(value: T) => value[locale];
+
+const terminalData = {
+  whoami: t.terminal.whoami,
+  projects: projects.flatMap((project) => {
+    const link = project.data.links[0];
+    return link ? [{ title: project.data.title, href: link.href }] : [];
+  }),
+  articles: articles.map((article) => ({ title: article.data.title, href: article.data.href })),
+  skills: skills.map((skill) => ({ group: localized(skill.data.group), items: skill.data.items })),
+  email,
+  resume,
+  ui: t.terminal,
+};
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  alternatePath={t.paths.alternate}
+  skipText={t.skip}
+>
+  <header class="sticky top-0 z-40 border-b border-line/60 bg-ink/95 backdrop-blur-sm">
+    <nav class="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 px-5 md:px-8" aria-label={t.nav.label}>
+      <a href={`${t.paths.home}#top`} class="inline-flex min-h-11 items-center font-display text-xl italic tracking-tight">
+        SeijinD
+      </a>
+      <ul class="flex min-w-0 items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] sm:gap-3 md:text-xs">
+        <li><a data-nav class="inline-flex min-h-11 items-center px-1.5 text-muted transition-colors hover:text-paper" href="#work">{t.nav.work}</a></li>
+        <li class="hidden sm:block"><a data-nav class="inline-flex min-h-11 items-center px-1.5 text-muted transition-colors hover:text-paper" href="#about">{t.nav.about}</a></li>
+        <li class="hidden md:block"><a data-nav class="inline-flex min-h-11 items-center px-1.5 text-muted transition-colors hover:text-paper" href="#writing">{t.nav.writing}</a></li>
+        <li class="hidden lg:block"><a data-nav class="inline-flex min-h-11 items-center px-1.5 text-muted transition-colors hover:text-paper" href="#experience">{t.nav.experience}</a></li>
+        <li><a data-nav class="inline-flex min-h-11 items-center px-1.5 text-muted transition-colors hover:text-paper" href="#contact">{t.nav.contact}</a></li>
+        <li><a class="inline-flex min-h-11 items-center px-1.5 text-lime transition-colors hover:text-paper" href={resume}>{t.nav.resume}</a></li>
+        <li>
+          <a
+            class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-line text-paper transition-colors hover:border-lime hover:text-lime"
+            href={t.paths.alternate}
+            lang={locale === "el" ? "en" : "el"}
+            hreflang={locale === "el" ? "en" : "el"}
+            aria-label={t.nav.languageLabel}>{t.nav.language}</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <Hero resume={resume} socials={[...primarySocials]} copy={t.hero} flipCopy={t.demo.flip} />
+
+    <Section id="work" title={t.sections.work}>
+      <div class="space-y-16 md:space-y-20">
+        {featured.map(({ data }) => (
+          <article class="grid gap-7 border-b border-line pb-16 last:border-0 last:pb-0 md:grid-cols-[1.05fr_0.95fr] md:gap-x-10 md:gap-y-8">
+            <header class="md:col-span-2">
+              <h3 class="font-display text-3xl font-medium tracking-tight md:text-4xl">{data.title}</h3>
+              <p class="mt-3 max-w-[65ch] text-lg text-paper/90">{localized(data.outcome)}</p>
+              {data.proof && <p class="mt-3 font-mono text-xs leading-relaxed text-lime">{localized(data.proof)}</p>}
+            </header>
+
+            <div class="min-w-0">
+              {data.demo === "sandbox" && <SandboxDemo copy={t.demo.sandbox} />}
+              {data.demo === "wasm" && <WasmDiagram label={t.demo.wasm.label} caption={t.demo.wasm.caption} />}
+              {data.image && (
+                <Image
+                  src={data.image}
+                  alt={data.imageAlt ? localized(data.imageAlt) : ""}
+                  widths={[480, 800]}
+                  sizes="(min-width: 768px) 32rem, 100vw"
+                  class="aspect-[16/9] w-full rounded-xl border border-line object-cover object-left-top"
+                />
+              )}
+            </div>
+
+            <div class="min-w-0">
+              <h4 class="font-mono text-xs uppercase tracking-[0.12em] text-muted">{t.work.contribution}</h4>
+              <p class="mt-2 text-paper/90">{localized(data.contribution)}</p>
+              <h4 class="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-muted">{t.work.technical}</h4>
+              <p class="mt-2 text-muted">{localized(data.detail)}</p>
+              <p class="mt-4 font-mono text-xs leading-relaxed text-muted">{data.tech.join(" · ")}</p>
+              <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-1" aria-label={t.work.linksLabel}>
+                {data.links.map((link) => (
+                  <li>
+                    <a class="link-underline inline-flex min-h-11 items-center font-medium" href={link.href}>
+                      {t.work.linkLabels[link.label]} ↗
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <h3 class="mt-16 font-display text-2xl font-medium">{t.work.alsoShipped}</h3>
+      <ul class="mt-4 divide-y divide-line border-y border-line">
+        {other.map(({ data }) => (
+          <li class="flex gap-5 py-6">
+            {data.image && (
+              <Image src={data.image} alt={data.imageAlt ? localized(data.imageAlt) : ""} width={56} height={56} class="size-14 shrink-0 rounded-xl border border-line" />
+            )}
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                <h4 class="font-display text-xl font-medium">{data.title}</h4>
+                {data.proof && <p class="font-mono text-xs text-lime">{localized(data.proof)}</p>}
+              </div>
+              <p class="mt-1 text-muted">{localized(data.outcome)}</p>
+              <p class="mt-2 font-mono text-xs text-muted">{data.tech.join(" · ")}</p>
+              {data.links.length > 0 && (
+                <ul class="mt-2 flex flex-wrap gap-x-5" aria-label={t.work.linksLabel}>
+                  {data.links.map((link) => (
+                    <li><a class="link-underline inline-flex min-h-11 items-center font-medium" href={link.href}>{t.work.linkLabels[link.label]} ↗</a></li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="about" title={t.sections.about}>
+      <div class="max-w-[65ch] space-y-4 text-lg text-muted">
+        {t.about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <ol class="mt-10 divide-y divide-line border-y border-line">
+        {strengths.map(({ data }, index) => (
+          <li class="grid gap-2 py-6 sm:grid-cols-[2rem_1fr_1.35fr] sm:gap-6">
+            <span class="font-mono text-xs text-lime sm:pt-1.5">{String(index + 1).padStart(2, "0")}</span>
+            <h3 class="font-display text-xl font-medium leading-snug">{localized(data.title)}</h3>
+            <p class="text-muted">{localized(data.proof)}</p>
+          </li>
+        ))}
+      </ol>
+    </Section>
+
+    <Section id="writing" title={t.sections.writing}>
+      <ul class="divide-y divide-line border-y border-line">
+        {articles.map(({ data }) => (
+          <li>
+            <a href={data.href} class="group grid min-h-11 gap-1.5 py-6 sm:grid-cols-[1fr_auto] sm:gap-8">
+              <span>
+                <span class="block font-display text-xl font-medium leading-snug transition-colors group-hover:text-lime md:text-2xl">{data.title}</span>
+                <span class="mt-1.5 block text-muted">{localized(data.summary)}</span>
+              </span>
+              <span class="font-mono text-xs text-muted sm:pt-2">{t.writing.platform} ↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Section>
+
+    <Section id="experience" title={t.sections.experience}>
+      <Timeline entries={experience} locale={locale} />
+    </Section>
+
+    <Section id="skills" title={t.sections.toolkit}>
+      <div class="grid gap-9 sm:grid-cols-2 xl:grid-cols-4">
+        {skills.map(({ data }) => (
+          <div>
+            <h3 class="font-display text-xl font-medium">{localized(data.group)}</h3>
+            <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 sm:block sm:space-y-1.5">
+              {data.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="education" title={t.sections.education}>
+      <Timeline entries={education} locale={locale} />
+      <h3 class="mt-12 font-display text-2xl font-medium">{t.sections.certifications}</h3>
+      <ul class="mt-4 grid gap-x-10 sm:grid-cols-2">
+        {certifications.map(({ data }) => (
+          <li class="border-b border-line py-4">
+            <p class="font-medium leading-snug">{data.title}</p>
+            <p class="mt-1 font-mono text-xs text-muted">{data.issuer} · {data.date}</p>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  </main>
+
+  <footer id="contact" class="border-t border-line bg-surface">
+    <div class="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
+      <h2 class="max-w-[20ch] font-display text-4xl font-normal leading-tight tracking-tight md:text-5xl">{t.contact.title}</h2>
+      <a class="link-underline mt-8 inline-flex min-h-11 items-center break-all font-display text-2xl italic md:text-3xl" href={`mailto:${email}`}>{email}</a>
+      <ul class="mt-8 flex flex-wrap gap-1" aria-label={t.contact.profilesLabel}>
+        {footerSocials.map((social) => (
+          <li>
+            <a href={social.href} class="inline-flex min-h-11 items-center gap-2 rounded-full px-3 font-mono text-sm text-muted transition-colors hover:text-lime">
+              <Icon name={social.icon} class="size-4" />
+              {social.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-12 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted">
+        <p>© {year} George Karanikolas</p>
+        <button type="button" class="min-h-11 px-2 transition-colors hover:text-lime" data-open-terminal aria-label={t.contact.sourceHint}>
+          ↑↑↓↓←→←→BA
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <Terminal data={terminalData} />
+
+  <script>
+    const navLinks = [...document.querySelectorAll<HTMLAnchorElement>("[data-nav]")];
+    const sections = navLinks
+      .map((link) => document.querySelector<HTMLElement>(link.hash))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const active = entries.find((entry) => entry.isIntersecting)?.target.id;
+        if (!active) return;
+        navLinks.forEach((link) => {
+          if (link.hash === `#${active}`) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      },
+      { rootMargin: "-20% 0px -70%", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+</Layout>

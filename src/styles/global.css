@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-fraunces);
-  --font-sans: var(--font-instrument);
+  --font-display: var(--font-display-active);
+  --font-sans: var(--font-sans-active);
   --font-mono: var(--font-jetbrains);
 }
 
@@ -17,10 +17,17 @@
 
 @layer base {
   html {
+    --font-display-active: var(--font-fraunces);
+    --font-sans-active: var(--font-instrument);
     background: var(--color-ink);
     color: var(--color-paper);
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+  }
+
+  html[lang="el"] {
+    --font-display-active: var(--font-noto-serif);
+    --font-sans-active: var(--font-noto-sans);
   }
 
   body {
@@ -28,6 +35,10 @@
     font-size: 1.0625rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    scrollbar-color: var(--color-line) var(--color-ink);
   }
 
   ::selection {
@@ -39,6 +50,13 @@
     outline: 2px solid var(--color-lime);
     outline-offset: 3px;
     border-radius: 2px;
+  }
+
+  [data-nav][aria-current="location"] {
+    color: var(--color-paper);
+    text-decoration: underline;
+    text-decoration-color: var(--color-lime);
+    text-underline-offset: 0.35em;
   }
 
   @media (prefers-reduced-motion: reduce) {

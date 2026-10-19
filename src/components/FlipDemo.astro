@@ -1,22 +1,32 @@
 ---
+import type { getUi } from "../i18n";
+
+interface Props {
+  copy: ReturnType<typeof getUi>["demo"]["flip"];
+}
+
+const { copy } = Astro.props;
 const cards = Array.from({ length: 6 }, (_, i) => i + 1);
 ---
 
 <figure class="flip-demo mx-auto w-full max-w-[17rem]" aria-labelledby="flip-demo-caption">
+  <p class="mb-3 text-center font-mono text-[0.7rem] uppercase leading-relaxed tracking-[0.14em] text-lime">
+    {copy.label}
+  </p>
   <div
     class="rounded-[2.75rem] border border-line bg-surface p-3 shadow-[0_30px_80px_-40px_rgba(200,242,106,0.25)]"
   >
     <div class="rounded-[2.1rem] border border-line bg-ink px-4 pb-5 pt-4">
       <div class="mx-auto mb-5 h-1.5 w-16 rounded-full bg-line" aria-hidden="true"></div>
-      <p class="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">Flip To Win</p>
+      <p class="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">{copy.title}</p>
       <p class="mb-4 mt-1 min-h-[3.2em] font-display text-xl leading-tight" data-status aria-live="polite">
-        Pick a card.
+        {copy.initial}
       </p>
 
       <div class="grid grid-cols-2 gap-3" data-board>
         {
           cards.map((n) => (
-            <button type="button" class="card aspect-[5/6] lg:aspect-square" data-card data-state="idle" aria-label={`Card ${n}`}>
+            <button type="button" class="card aspect-[5/6] lg:aspect-square" data-card data-state="idle" aria-label={`${copy.card} ${n}`}>
               <span class="card-inner">
                 <span class="face face-back">
                   <span class="font-display text-3xl italic">?</span>
@@ -35,18 +45,19 @@ const cards = Array.from({ length: 6 }, (_, i) => i + 1);
         class="mt-4 hidden min-h-11 w-full rounded-full border border-line font-mono text-xs uppercase tracking-[0.14em] text-paper transition-colors hover:border-lime hover:text-lime"
         data-reset
       >
-        Play again
+        {copy.replay}
       </button>
     </div>
   </div>
   <figcaption id="flip-demo-caption" class="mt-4 text-center font-mono text-xs leading-relaxed text-muted">
-    A working sketch of Flip To Win: the reward is claimed before the card turns.{" "}
+    {copy.caption}{" "}
     <a
       class="link-underline text-paper"
       href="https://medium.com/@seijind/claim-before-you-reveal-engineering-a-flip-to-win-experience-in-jetpack-compose-6f4f6e9fece6"
-      >How it works</a
+      >{copy.article}</a
     >
   </figcaption>
+  <script type="application/json" data-flip-copy set:html={JSON.stringify(copy)} />
 </figure>
 
 <style>
@@ -149,11 +160,12 @@ const cards = Array.from({ length: 6 }, (_, i) => i + 1);
 </style>
 
 <script>
-  const prizes = ["50 coins", "Mystery box", "Free retry", "Trophy"];
   // Stands in for the claim API round trip that has to finish before the reveal.
   const claimDelayMs = 700;
 
   for (const demo of document.querySelectorAll<HTMLElement>(".flip-demo")) {
+    const copy = JSON.parse(demo.querySelector<HTMLScriptElement>("[data-flip-copy]")!.textContent!);
+    const prizes: string[] = copy.prizes;
     const status = demo.querySelector<HTMLElement>("[data-status]")!;
     const reset = demo.querySelector<HTMLButtonElement>("[data-reset]")!;
     const cards = [...demo.querySelectorAll<HTMLButtonElement>("[data-card]")];
@@ -169,14 +181,14 @@ const cards = Array.from({ length: 6 }, (_, i) => i + 1);
         if (card.dataset.state !== "idle") return;
         setAll("locked");
         card.dataset.state = "claiming";
-        status.textContent = "Claiming reward…";
+        status.textContent = copy.claiming;
 
         window.setTimeout(() => {
           const prize = prizes[Math.floor(Math.random() * prizes.length)];
           card.querySelector<HTMLElement>("[data-prize]")!.textContent = prize;
           card.dataset.state = "revealed";
-          card.setAttribute("aria-label", `Revealed: ${prize}`);
-          status.textContent = `Claimed, then revealed: ${prize}.`;
+          card.setAttribute("aria-label", `${copy.revealed}: ${prize}`);
+          status.textContent = `${copy.claimedPrefix} ${prize}.`;
           reset.classList.remove("hidden");
         }, claimDelayMs);
       });
@@ -184,8 +196,8 @@ const cards = Array.from({ length: 6 }, (_, i) => i + 1);
 
     reset.addEventListener("click", () => {
       setAll("idle");
-      cards.forEach((card, i) => card.setAttribute("aria-label", `Card ${i + 1}`));
-      status.textContent = "Pick a card.";
+      cards.forEach((card, i) => card.setAttribute("aria-label", `${copy.card} ${i + 1}`));
+      status.textContent = copy.initial;
       reset.classList.add("hidden");
       cards[0].focus();
     });

@@ -2,12 +2,27 @@
   "order": 3,
   "title": "Flip To Win",
   "featured": true,
-  "summary": "An open-source Jetpack Compose library for the \"flip a card, win a prize\" mechanic, and the real version of the game at the top of this page. The prize is claimed on the backend before any card turns, so the reveal never shows something the server has not confirmed. Clean Architecture, unidirectional data flow and unit-tested state mapping.",
+  "outcome": {
+    "en": "Turns a simple reward interaction into a flow that never reveals a result before the server confirms it.",
+    "el": "Μετατρέπει ένα απλό reward interaction σε ροή που δεν αποκαλύπτει αποτέλεσμα πριν το επιβεβαιώσει ο server."
+  },
+  "contribution": {
+    "en": "I built the open-source Compose implementation, including claim locking, reveal choreography, retry and state recovery.",
+    "el": "Υλοποίησα το open-source Compose flow, μαζί με claim locking, reveal choreography, retry και state recovery."
+  },
+  "detail": {
+    "en": "Clean Architecture, unidirectional data flow and unit-tested state mapping keep backend and animation state aligned.",
+    "el": "Clean Architecture, unidirectional data flow και unit-tested state mapping κρατούν συγχρονισμένα backend και animation state."
+  },
+  "proof": { "en": "Backend confirmation precedes every reveal", "el": "Κάθε reveal ακολουθεί backend confirmation" },
   "image": "./flip-to-win.jpg",
-  "imageAlt": "Article cover: a card flips over a phone screen to reveal a trophy after a backend claim.",
+  "imageAlt": {
+    "en": "Article cover: a card flips over a phone screen to reveal a trophy after a backend claim.",
+    "el": "Εξώφυλλο άρθρου: μια κάρτα γυρίζει πάνω από οθόνη κινητού και αποκαλύπτει τρόπαιο μετά από backend claim."
+  },
   "tech": ["Kotlin 2.0", "Jetpack Compose", "StateFlow", "Hilt", "Coil 3"],
   "links": [
-    { "label": "Source", "href": "https://github.com/SeijinD/FlipToWin" },
-    { "label": "Article", "href": "https://medium.com/@seijind/claim-before-you-reveal-engineering-a-flip-to-win-experience-in-jetpack-compose-6f4f6e9fece6" }
+    { "label": "source", "href": "https://github.com/SeijinD/FlipToWin" },
+    { "label": "article", "href": "https://medium.com/@seijind/claim-before-you-reveal-engineering-a-flip-to-win-experience-in-jetpack-compose-6f4f6e9fece6" }
   ]
 }

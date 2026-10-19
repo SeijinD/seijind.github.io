@@ -2,25 +2,25 @@
   {
     "id": "preview-sandbox", "order": 1,
     "title": "Stop Writing 20 @Preview Functions: Build a Runtime Sandbox Instead",
-    "summary": "Moving Compose configuration from compile-time branching to runtime exploration.",
+    "summary": { "en": "Moving Compose configuration from compile-time branching to runtime exploration.", "el": "Μεταφορά του Compose configuration από compile-time παραλλαγές σε runtime εξερεύνηση." },
     "href": "https://medium.com/@seijind/stop-writing-20-preview-functions-build-a-runtime-sandbox-instead-7cf370226744"
   },
   {
     "id": "room-in-the-browser", "order": 2,
     "title": "Room Database in the Browser: Kotlin/Wasm and SQLite with OPFS",
-    "summary": "Fully persistent, offline-capable web apps with the same Room code you ship on Android.",
+    "summary": { "en": "Fully persistent, offline-capable web apps with the same Room code you ship on Android.", "el": "Persistent, offline-capable web εφαρμογές με το ίδιο Room code που χρησιμοποιείται στο Android." },
     "href": "https://medium.com/@seijind/room-database-in-the-browser-kotlin-wasm-and-sqlite-with-opfs-9c32cc6def61"
   },
   {
     "id": "rss-monitor", "order": 3,
     "title": "5 Patterns Behind a Production RSS Monitor in Kotlin",
-    "summary": "Parallel polling, conditional HTTP requests and what else it takes to make a poller production-ready.",
+    "summary": { "en": "Parallel polling, conditional HTTP requests and what else it takes to make a poller production-ready.", "el": "Parallel polling, conditional HTTP requests και οι λεπτομέρειες που κάνουν έναν poller production-ready." },
     "href": "https://medium.com/@seijind/5-patterns-behind-a-production-rss-monitor-in-kotlin-1801490b3243"
   },
   {
     "id": "flip-to-win", "order": 4,
     "title": "Claim Before You Reveal: Engineering a Flip-to-Win Experience in Jetpack Compose",
-    "summary": "State management, animation choreography and backend sync behind a simple-looking card flip.",
+    "summary": { "en": "State management, animation choreography and backend sync behind a simple-looking card flip.", "el": "State management, animation choreography και backend sync πίσω από ένα φαινομενικά απλό card flip." },
     "href": "https://medium.com/@seijind/claim-before-you-reveal-engineering-a-flip-to-win-experience-in-jetpack-compose-6f4f6e9fece6"
   }
 ]

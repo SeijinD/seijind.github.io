@@ -1,4 +1,10 @@
 ---
+interface Props {
+  label: string;
+  caption: string;
+}
+
+const { label, caption } = Astro.props;
 const layers = [
   { source: "commonMain", items: ["NoteEntity · @Entity", "NoteDao · @Dao", "AppDatabase", "expect getDatabaseBuilder()"] },
   { source: "wasmJsMain", items: ["actual getDatabaseBuilder()", "WebWorkerSQLiteDriver", "Web Worker"] },
@@ -7,6 +13,7 @@ const layers = [
 ---
 
 <figure class="rounded-xl border border-line bg-surface p-5 font-mono text-xs sm:text-[0.8rem]">
+  <p class="mb-4 uppercase tracking-[0.14em] text-lime">{label}</p>
   <ol class="space-y-3">
     {
       layers.map((layer, i) => (
@@ -28,5 +35,5 @@ const layers = [
       ))
     }
   </ol>
-  <figcaption class="mt-4 text-muted">Same Room code as Android. Data survives a page refresh.</figcaption>
+  <figcaption class="mt-4 text-muted">{caption}</figcaption>
 </figure>

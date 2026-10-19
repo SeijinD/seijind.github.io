@@ -2,12 +2,27 @@
   "order": 1,
   "title": "StringSmith",
   "featured": true,
-  "summary": "An Android Studio plugin that takes the busywork out of strings.xml. Press Alt+Enter on a hardcoded literal and it picks the right reference for the context: stringResource in a composable, getString in an Activity, Res.string in Compose Multiplatform. It also catches duplicates and flags unused resources. Published on the JetBrains Marketplace.",
+  "outcome": {
+    "en": "Removes repetitive strings.xml work without forcing developers to leave the editor.",
+    "el": "Αφαιρεί την επαναλαμβανόμενη δουλειά γύρω από το strings.xml χωρίς ο developer να εγκαταλείπει τον editor."
+  },
+  "contribution": {
+    "en": "I built and published an Android Studio plugin that extracts hardcoded text, finds duplicates and flags unused resources.",
+    "el": "Δημιούργησα και δημοσίευσα Android Studio plugin που εξάγει hardcoded κείμενα, εντοπίζει duplicates και επισημαίνει unused resources."
+  },
+  "detail": {
+    "en": "Its quick-fix selects stringResource, getString or Compose Multiplatform Res.string based on the code context.",
+    "el": "Το quick-fix επιλέγει stringResource, getString ή Compose Multiplatform Res.string ανάλογα με το code context."
+  },
+  "proof": { "en": "Published on the JetBrains Marketplace", "el": "Δημοσιευμένο στο JetBrains Marketplace" },
   "image": "./stringsmith.png",
-  "imageAlt": "StringSmith quick-fix in Android Studio: Extract to strings.xml, with a table of the reference used in each context.",
+  "imageAlt": {
+    "en": "StringSmith quick-fix in Android Studio: Extract to strings.xml, with a table of the reference used in each context.",
+    "el": "StringSmith quick-fix στο Android Studio για εξαγωγή σε strings.xml, με πίνακα της αναφοράς που χρησιμοποιείται σε κάθε context."
+  },
   "tech": ["Kotlin", "IntelliJ Platform", "Android Studio", "Compose Multiplatform"],
   "links": [
-    { "label": "JetBrains Marketplace", "href": "https://plugins.jetbrains.com/plugin/32198-stringsmith--android-strings-toolkit" },
-    { "label": "Source", "href": "https://github.com/SeijinD/stringsmith" }
+    { "label": "marketplace", "href": "https://plugins.jetbrains.com/plugin/32198-stringsmith--android-strings-toolkit" },
+    { "label": "source", "href": "https://github.com/SeijinD/stringsmith" }
   ]
 }
