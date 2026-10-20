@@ -111,8 +111,10 @@ const terminalData = {
                   src={data.image}
                   alt={data.imageAlt ? localized(data.imageAlt) : ""}
                   widths={[480, 800]}
-                  sizes="(min-width: 768px) 32rem, 100vw"
-                  class="aspect-[16/9] w-full rounded-xl border border-line object-cover object-left-top"
+                  sizes={data.imageShape === "portrait" ? "24rem" : "(min-width: 768px) 32rem, 100vw"}
+                  class={data.imageShape === "portrait"
+                    ? "h-auto w-96 max-w-full rounded-xl border border-line"
+                    : "aspect-[16/9] w-full rounded-xl border border-line object-cover object-left-top"}
                 />
               )}
             </div>

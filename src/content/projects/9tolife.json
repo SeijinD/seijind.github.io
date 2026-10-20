@@ -1,0 +1,27 @@
+{
+  "order": 7,
+  "title": "9toLife",
+  "featured": true,
+  "outcome": {
+    "en": "A shift timer built around the QR code of the Greek digital work card.",
+    "el": "Χρονόμετρο βάρδιας γύρω από το QR της ελληνικής ψηφιακής κάρτας εργασίας."
+  },
+  "contribution": {
+    "en": "I built the Android and iOS apps on a shared Kotlin Multiplatform logic layer.",
+    "el": "Έφτιαξα τις εφαρμογές Android και iOS πάνω σε κοινό λογικό επίπεδο σε Kotlin Multiplatform."
+  },
+  "detail": {
+    "en": "Compose on Android and SwiftUI on iOS, with a Live Activity, a Quick Settings tile and a Control Center control.",
+    "el": "Compose στο Android και SwiftUI στο iOS, με Live Activity, Quick Settings tile και control στο Control Center."
+  },
+  "image": "./9tolife.png",
+  "imageShape": "portrait",
+  "imageAlt": {
+    "en": "9toLife iOS home screen: empty state with a yellow plus button and the line Scan your work card.",
+    "el": "Αρχική οθόνη 9toLife σε iOS: κενή κατάσταση με κίτρινο κουμπί + και την φράση Scan your work card."
+  },
+  "tech": ["Kotlin Multiplatform", "Kotlin", "Jetpack Compose", "SwiftUI", "Room", "Koin"],
+  "links": [
+    { "label": "source", "href": "https://github.com/SeijinD/9toLife" }
+  ]
+}

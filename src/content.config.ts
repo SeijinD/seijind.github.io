@@ -22,6 +22,7 @@ const projects = defineCollection({
       detail: localizedText,
       proof: localizedText.optional(),
       image: image().optional(),
+      imageShape: z.enum(["portrait"]).optional(),
       imageAlt: localizedText.optional(),
       demo: z.enum(["sandbox", "wasm"]).optional(),
       tech: z.array(z.string()),
