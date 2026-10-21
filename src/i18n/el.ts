@@ -32,7 +32,7 @@ export const el = {
       ["5 χρόνια", "σε Android εφαρμογές παραγωγής"],
       ["StringSmith", "δημοσιευμένο στο JetBrains Marketplace"],
       ["4 άρθρα", "για Compose, KMP και Kotlin"],
-      ["Android έως Wasm", "Kotlin σε πολλαπλές πλατφόρμες"],
+      ["KMP + native UIs", "Compose σε Android · SwiftUI σε iOS"],
     ],
   },
   sections: {

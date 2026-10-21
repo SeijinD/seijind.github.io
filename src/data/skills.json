@@ -1,6 +1,6 @@
 [
   { "id": "android", "order": 1, "group": { "en": "Android", "el": "Android" }, "items": ["Kotlin", "Jetpack Compose", "Coroutines and Flow", "MVVM / MVI", "Clean Architecture", "Hilt / Koin", "Retrofit / OkHttp", "Room", "Coil", "Unit and UI testing", "Java"] },
-  { "id": "multiplatform", "order": 2, "group": { "en": "Multiplatform", "el": "Multiplatform" }, "items": ["Kotlin Multiplatform", "Compose Multiplatform", "Kotlin/Wasm", "Ktor"] },
+  { "id": "multiplatform", "order": 2, "group": { "en": "Multiplatform", "el": "Multiplatform" }, "items": ["Kotlin Multiplatform", "Compose Multiplatform", "SwiftUI", "iOS", "Kotlin/Wasm", "Ktor"] },
   { "id": "backend", "order": 3, "group": { "en": "Backend and data", "el": "Backend και δεδομένα" }, "items": ["Firebase", "PostgreSQL", "MongoDB", "SQLite", "Python"] },
   { "id": "tools", "order": 4, "group": { "en": "Tools", "el": "Εργαλεία" }, "items": ["Android Studio", "IntelliJ Platform SDK", "Git, GitHub, GitLab", "GitHub Actions", "Docker", "Postman", "Jira / Confluence"] }
 ]

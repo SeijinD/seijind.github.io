@@ -1,5 +1,5 @@
 {
-  "order": 7,
+  "order": 2,
   "title": "9toLife",
   "featured": true,
   "outcome": {
@@ -7,8 +7,8 @@
     "el": "Χρονόμετρο βάρδιας γύρω από το QR της ελληνικής ψηφιακής κάρτας εργασίας."
   },
   "contribution": {
-    "en": "I built the Android and iOS apps on a shared Kotlin Multiplatform logic layer.",
-    "el": "Έφτιαξα τις εφαρμογές Android και iOS πάνω σε κοινό λογικό επίπεδο σε Kotlin Multiplatform."
+    "en": "I built the Android and iOS apps with a shared Kotlin Multiplatform layer and native UI on each platform.",
+    "el": "Υλοποίησα τις εφαρμογές Android και iOS με κοινό Kotlin Multiplatform layer και native UI σε κάθε πλατφόρμα."
   },
   "detail": {
     "en": "Compose on Android and SwiftUI on iOS, with a Live Activity, a Quick Settings tile and a Control Center control.",

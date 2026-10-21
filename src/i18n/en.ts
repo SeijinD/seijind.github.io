@@ -32,7 +32,7 @@ export const en = {
       ["5 years", "shipping Android apps in production"],
       ["StringSmith", "published on the JetBrains Marketplace"],
       ["4 articles", "on Compose, KMP and Kotlin"],
-      ["Android to Wasm", "Kotlin across platforms"],
+      ["KMP + native UIs", "Compose on Android · SwiftUI on iOS"],
     ],
   },
   sections: {
